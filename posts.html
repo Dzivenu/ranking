@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-app='app'>
+	<div ng-controller='PostsCtrl'>
+		<h1>Recent Posts</h1>
+		<button ng-click='addPost()' class='btn btn-default'>Add Post</button>
+		<ul class='list-group'>
+			<li ng-repeat='post in posts' class='list-group-item'>
+				<strong>@{{post.username}}</strong>
+				<span>{{post.body}}</span>
+			</li>
+		</ul>
+	</div>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
+	<script>
+		var app = angular.module('app',[])
+		app.controller('PostsCtrl', function($scope) {
+			$scope.posts = [
+				{
+					username: 'gutzofter',
+					body: 'Node Rules!'
+				},
+				{
+					username: 'alepchain',
+					body: 'Trying it out!'
+
+				},
+				{
+					username: 'alephchain',
+					body: 'Fixing it up'
+
+				}
+			]
+
+			$scope.addPost = function() {
+				$scope.posts.unshift({
+					username: 'gutzofter',
+					body: 'My New Post'
+				})
+			}
+		})
+	</script>
+</body>
+</html>

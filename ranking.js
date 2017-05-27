@@ -37,7 +37,7 @@ var ranking = function(callback) {
 							accounts.forEach(function(account) {
 								var rank = 100 * ((account.vesting_shares.amount - vest.min)/(vest.max - vest.min))
 								var rank_percent = rank.toFixed(3).toString() + ' %'
-								console.log(rank_percent);
+								console.log(rank_percent + ' Ranking');
 
 								ranks.push(rank_percent)
 							})

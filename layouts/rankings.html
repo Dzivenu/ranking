@@ -3,7 +3,7 @@
 <head>
 	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
 	<link rel='stylesheet' href='styles/styles.css'>
-	<link rel="icon" href="icons/aleph.png">
+	<link rel='icon' href='icons/aleph.png'>
 </head>
 <body ng-app='app'>
 	<div ng-controller='RankingsCtrl' class='container'>
@@ -12,14 +12,16 @@
 			<div class='form-group'>
 				<div class='input-group'>
 					<input ng-model='rankingsAccount' class='form-control' />
-					<span class='input-button-group'>
+						<img src='icons/spinner.gif' ng-show='loading'/>
+						<!-- <img src='icons/spinner.gif' ng-show='loading' style='display:none'/> -->
+						<span class='input-button-group'>
 						<button ng-click='getAccount()' class='btn btn-default pull-right'>Search</button>
 					</span>
 				</div>
 			</div>
 		</form>
 		<ul class='list-group'>
-			<li ng-repeat="ranking in rankings" class='list-group-item'>
+			<li ng-repeat='ranking in rankings' class='list-group-item'>
 				<strong>@{{ranking.account}}:</strong>
 				<span>{{ranking.rank}}</span>
 			</li>
@@ -28,21 +30,21 @@
 		<br>
 		<br>
 		<br>
-		<div id="wrap">
-			<div class="box" >
+		<div id='wrap'>
+			<div class='box' >
 				<a href='https://steemdata.com'>
-					<img src='icons/steemdata.png' height="22" width="22"/> 
+					<img src='icons/steemdata.png' height='22' width='22'/> 
 					<span>Backend by SteemData</span>
 				</a>
 				<br>
 				<a href='https://steemit.com/@gutzofter'>
-					<img src='icons/aleph.png' height="22" width="22"/>
+					<img src='icons/aleph.png' height='22' width='22'/>
 					<span>Developed by @gutzofter</span>
 				</a>
 				<br>
 				<br>
 				<address>
-					<a href="mailto:gutzofter@alephchain.com">gutzofter@alephchain.com</a> 
+					<a href='mailto:gutzofter@alephchain.com'>gutzofter@alephchain.com</a> 
 				</address>			
 			</div>
 		</div>
@@ -53,16 +55,27 @@
 		
 		app.controller('RankingsCtrl', function($scope, $http) {
 			
+			$scope.loading = false;
+			
 			$scope.getAccount = function() {
+				$scope.loading = true;
+			
 				if($scope.rankingsAccount) {
 					$http.get('api/rankings', {params: { account: $scope.rankingsAccount }})
 					.success(function(rankings) {
 						$scope.rankings = rankings
 					})
+					.finally(function () {
+						$scope.loading = false;
+					})
 
 					$scope.rankingsAccount = null
 				}
+				else {
+					$scope.loading = false;
+				}
 			}
+			
 		})
 	</script>
 </body>

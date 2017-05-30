@@ -11,7 +11,8 @@ app.use(require('./controllers/static'))
 app.use('/icons', express.static(path.join(__dirname, 'icons')))
 app.use('/styles', express.static(path.join(__dirname, 'styles')))
 
-app.listen(3000, function() {
-	console.log('Server:', 3000)
+var port = 80
+app.listen(port, function() {
+	console.log('Server:', port)
 })
 

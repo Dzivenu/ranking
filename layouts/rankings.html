@@ -7,13 +7,12 @@
 </head>
 <body ng-app='app'>
 	<div ng-controller='RankingsCtrl' class='container'>
-		<h1>Find Your Relative Steem Ranking</h1>
+		<h1>Find Your Relative Steem Power Ranking</h1>
 		<form role='form'>
 			<div class='form-group'>
 				<div class='input-group'>
 					<input ng-model='rankingsAccount' class='form-control' />
 						<img src='icons/spinner.gif' ng-show='loading'/>
-						<!-- <img src='icons/spinner.gif' ng-show='loading' style='display:none'/> -->
 						<span class='input-button-group'>
 						<button ng-click='getAccount()' class='btn btn-default pull-right'>Search</button>
 					</span>

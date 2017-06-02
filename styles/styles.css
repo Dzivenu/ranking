@@ -5,8 +5,21 @@
 .box{
     float:left;
     width:100%;
-    height:48px;
+    height:72px;
     background:#e6f7ff;
     border:1px solid #0000cc;
+    margin:0 auto;
+}
+
+.box-feed{
+    float:left;
+    width:33%;
+    height:199px;
+    margin:0 auto;
+}
+.box-line{
+    float:left;
+    width:100%;
+    height:12px;
     margin:0 auto;
 }

@@ -29,6 +29,10 @@
 		<br>
 		<br>
 		<br>
+		<div class="box-feed coinmarketcap-currency-widget" data-currency="steem" data-base="USD"  data-secondary="BTC"></div>
+		<div class="box-feed coinmarketcap-currency-widget" data-currency="steem-dollars" data-base="USD"  data-secondary="BTC"></div>
+		<div class="box-feed coinmarketcap-currency-widget" data-currency="bitcoin" data-base="USD" ></div>
+		<div class="box-line"></div>
 		<div id='wrap'>
 			<div class='box' >
 				<a href='https://steemdata.com'>
@@ -40,8 +44,6 @@
 					<img src='icons/aleph.png' height='22' width='22'/>
 					<span>Developed by @gutzofter</span>
 				</a>
-				<br>
-				<br>
 				<address>
 					<a href='mailto:gutzofter@alephchain.com'>gutzofter@alephchain.com</a> 
 				</address>			
@@ -55,7 +57,7 @@
 		app.controller('RankingsCtrl', function($scope, $http) {
 			
 			$scope.loading = false;
-			
+		
 			$scope.getAccount = function() {
 				$scope.loading = true;
 			
@@ -86,5 +88,6 @@
 		ga('create', 'UA-100140430-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+	<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
 </body>
 </html>

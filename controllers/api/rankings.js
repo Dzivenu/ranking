@@ -23,6 +23,8 @@ var rankings = function(account_param, callback) {
 			if(!err) {
 				vests.forEach(function(vest) {
 					
+					account_param = account_param.toLowerCase()
+					
 					var clean_account = account_param
 
 					if(account_param.match('@')) {
